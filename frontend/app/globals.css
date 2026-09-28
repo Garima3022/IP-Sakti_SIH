@@ -1,0 +1,78 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  body {
+    background-color: #F5F7F2;
+    color: #1F3329;
+    font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+}
+
+/* Botanical Light Glassmorphism & Card Utilities */
+.glass-panel {
+  background: #FFFFFF;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid #DCE6DC;
+  box-shadow: 0 4px 20px -2px rgba(23, 70, 52, 0.06);
+}
+
+.glass-panel-hover:hover {
+  background: #FFFFFF;
+  border-color: #16866A;
+  box-shadow: 0 10px 30px -5px rgba(22, 134, 106, 0.12);
+}
+
+.glass-card-light {
+  background: #EDF3EB;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid #DCE6DC;
+}
+
+.glass-input {
+  background: #FFFFFF;
+  border: 1px solid #DCE6DC;
+}
+
+.glass-input:focus-within {
+  border-color: #16866A;
+  box-shadow: 0 0 0 3px rgba(22, 134, 106, 0.15);
+}
+
+/* Glow Effects */
+.emerald-glow {
+  box-shadow: 0 0 25px rgba(22, 134, 106, 0.18);
+}
+
+.gold-glow {
+  box-shadow: 0 0 20px rgba(217, 154, 54, 0.25);
+}
+
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 15px rgba(22, 134, 106, 0.15); }
+  50% { box-shadow: 0 0 25px rgba(22, 134, 106, 0.35); }
+}
+
+.animate-pulse-glow {
+  animation: pulseGlow 3s infinite ease-in-out;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F5F7F2;
+}
+::-webkit-scrollbar-thumb {
+  background: #DCE6DC;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #16866A;
+}

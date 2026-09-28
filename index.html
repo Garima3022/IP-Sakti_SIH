@@ -1,0 +1,338 @@
+<!DOCTYPE html>
+<html lang="en" class="dark scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>DR. Ayurvedic Sathi | IP-SAKTI Sahayak - Ministry of Ayush</title>
+  <meta name="description" content="Multilingual RAG AI Assistant for Intellectual Property, Botanical Drug Compliance, and Global Regulatory Guidance in Ayurveda" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script src="https://unpkg.com/lucide@latest"></script>
+  <script>
+    tailwind.config = {
+      darkMode: 'class',
+      theme: {
+        extend: {
+          fontFamily: { outfit: ['Outfit', 'system-ui', 'sans-serif'] },
+          colors: {
+            ayush: { 50:'#f0fdf4',100:'#dcfce7',200:'#bbf7d0',300:'#86efac',400:'#4ade80',500:'#22c55e',600:'#16a34a',700:'#15803d',800:'#166534',900:'#14532d',950:'#052e16' },
+            surface: { 50:'#0a0f1a',100:'#0d1321',200:'#111827',300:'#1a2332',400:'#243044' }
+          }
+        }
+      }
+    }
+  </script>
+  <style>
+    * { scrollbar-width: thin; scrollbar-color: #334155 #0a0f1a; }
+    body { background: #060a12; color: #f1f5f9; font-family: 'Outfit', system-ui, sans-serif; position: relative; }
+    body::before { content: ''; position: fixed; inset: 0; z-index: -2; background: url('bg-ayurveda.png') center/cover no-repeat; opacity: 0.8; }
+    body::after { content: ''; position: fixed; inset: 0; z-index: -1; background: linear-gradient(180deg, rgba(6,10,18,0.82) 0%, rgba(6,10,18,0.75) 40%, rgba(6,10,18,0.85) 100%); }
+    ::selection { background: #059669; color: white; }
+    ::-webkit-scrollbar { width: 6px; height: 6px; }
+    ::-webkit-scrollbar-track { background: #0a0f1a; }
+    ::-webkit-scrollbar-thumb { background: #1e3a3a; border-radius: 4px; }
+    ::-webkit-scrollbar-thumb:hover { background: #10b981; }
+
+    .glass { background: rgba(13,19,33,0.7); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); border: 1px solid rgba(255,255,255,0.06); }
+
+    .hero-bg {
+      background: radial-gradient(ellipse 80% 60% at 50% 0%, rgba(16,185,129,0.12) 0%, transparent 60%),
+                  radial-gradient(ellipse 60% 40% at 80% 20%, rgba(20,184,166,0.08) 0%, transparent 50%),
+                  radial-gradient(ellipse 50% 50% at 20% 80%, rgba(6,95,70,0.06) 0%, transparent 50%);
+    }
+    .section-bg {
+      background: radial-gradient(ellipse 70% 50% at 50% 100%, rgba(16,185,129,0.05) 0%, transparent 60%);
+    }
+
+    @keyframes float { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-8px)} }
+    @keyframes pulseGlow { 0%,100%{box-shadow:0 0 15px rgba(16,185,129,0.15)} 50%{box-shadow:0 0 30px rgba(16,185,129,0.4)} }
+    @keyframes fadeUp { from{opacity:0;transform:translateY(24px)} to{opacity:1;transform:translateY(0)} }
+
+    .animate-float { animation: float 4s ease-in-out infinite; }
+    .animate-pulse-glow { animation: pulseGlow 3s ease-in-out infinite; }
+    .animate-fade-up { animation: fadeUp 0.6s ease-out both; }
+
+    .card-hover { transition: all 0.3s cubic-bezier(0.4,0,0.2,1); }
+    .card-hover:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(0,0,0,0.4), 0 0 0 1px rgba(16,185,129,0.15); }
+    .btn-primary { background: linear-gradient(135deg, #059669 0%, #0d9488 50%, #0891b2 100%); transition: all 0.3s; }
+    .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 8px 25px rgba(5,150,105,0.35); }
+
+    .stat-glow { box-shadow: 0 0 30px rgba(16,185,129,0.08); }
+
+    @media (max-width:768px) {
+      .hero-title { font-size: 2rem !important; }
+    }
+  </style>
+</head>
+<body class="min-h-screen font-outfit antialiased">
+
+  <!-- ══════════════ NAVIGATION BAR ══════════════ -->
+  <nav class="fixed top-0 left-0 right-0 z-50 glass border-b border-white/5">
+    <div class="max-w-7xl mx-auto px-4 lg:px-8 py-3 flex items-center justify-between">
+      <a href="index.html" class="flex items-center gap-3">
+        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-emerald-600 via-teal-500 to-cyan-500 flex items-center justify-center shadow-lg shadow-emerald-900/40 animate-pulse-glow">
+          <i data-lucide="leaf" class="w-5 h-5 text-white"></i>
+        </div>
+        <div>
+          <h1 class="text-lg font-black bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-300 tracking-tight leading-tight">DR. Ayurvedic Sathi</h1>
+          <p class="text-[10px] font-semibold text-slate-500 tracking-wider uppercase">IP-SAKTI Sahayak • Ministry of Ayush</p>
+        </div>
+      </a>
+      <div class="hidden md:flex items-center gap-1">
+        <a href="#hero" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-emerald-300 bg-emerald-500/10 border border-emerald-500/20">Home</a>
+        <a href="#about" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-emerald-300 border border-transparent transition-all">About</a>
+        <a href="#features" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-emerald-300 border border-transparent transition-all">Features</a>
+        <a href="#how-to-use" class="px-3.5 py-1.5 rounded-lg text-xs font-bold text-slate-400 hover:text-emerald-300 border border-transparent transition-all">How to Use</a>
+        <a href="app.html" class="px-4 py-1.5 rounded-lg text-xs font-bold btn-primary text-white ml-2">Launch App →</a>
+      </div>
+      <a href="app.html" class="md:hidden px-4 py-1.5 rounded-lg text-xs font-bold btn-primary text-white">Launch App →</a>
+    </div>
+  </nav>
+
+  <!-- ══════════════ HERO SECTION ══════════════ -->
+  <section id="hero" class="hero-bg min-h-screen flex items-center justify-center pt-20 pb-16 px-4">
+    <div class="max-w-6xl mx-auto text-center">
+      <div class="animate-fade-up">
+        <div class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full glass border border-emerald-500/20 text-xs font-bold text-emerald-400 mb-8">
+          <i data-lucide="shield-check" class="w-3.5 h-3.5"></i>
+          <span>SIH Problem Statement: IP-SAKTI Sahayak • Ministry of Ayush</span>
+        </div>
+      </div>
+      <h2 class="hero-title text-4xl md:text-6xl lg:text-7xl font-black leading-tight mb-6 animate-fade-up" style="animation-delay:0.1s">
+        <span class="bg-clip-text text-transparent bg-gradient-to-r from-emerald-400 via-teal-300 to-cyan-400">DR. Ayurvedic</span>
+        <br/>
+        <span class="text-white">Sathi</span>
+      </h2>
+      <p class="text-lg md:text-xl text-slate-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-fade-up font-light" style="animation-delay:0.2s">
+        Your AI-powered companion for <strong class="text-emerald-300 font-semibold">Ayurvedic Intellectual Property</strong>, 
+        <strong class="text-teal-300 font-semibold">Botanical Drug Compliance</strong>, and 
+        <strong class="text-cyan-300 font-semibold">Global Regulatory Guidance</strong>. Multilingual support in English, Hindi, Tamil &amp; Sanskrit.
+      </p>
+      <div class="flex flex-wrap items-center justify-center gap-4 animate-fade-up" style="animation-delay:0.3s">
+        <a href="app.html" class="btn-primary px-8 py-3.5 rounded-xl text-white font-bold text-sm flex items-center gap-2 shadow-xl">
+          <i data-lucide="rocket" class="w-4 h-4"></i> Launch Platform
+        </a>
+        <a href="app.html#scanner" class="px-8 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 glass border-emerald-500/20 text-emerald-300 hover:bg-emerald-950/30 transition-all">
+          <i data-lucide="camera" class="w-4 h-4"></i> Scan a Herb
+        </a>
+        <a href="#about" class="px-8 py-3.5 rounded-xl font-bold text-sm flex items-center gap-2 text-slate-400 hover:text-white border border-slate-700/50 hover:border-slate-600 transition-all">
+          <i data-lucide="info" class="w-4 h-4"></i> Learn More
+        </a>
+      </div>
+
+      <!-- Stats Bar -->
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 mt-20 animate-fade-up" style="animation-delay:0.35s">
+        <div class="glass rounded-xl p-4 stat-glow text-center">
+          <div class="text-2xl font-black text-emerald-400">6+</div>
+          <div class="text-[11px] text-slate-400 font-semibold mt-1">Regulatory Frameworks</div>
+        </div>
+        <div class="glass rounded-xl p-4 stat-glow text-center">
+          <div class="text-2xl font-black text-teal-400">4</div>
+          <div class="text-[11px] text-slate-400 font-semibold mt-1">Languages Supported</div>
+        </div>
+        <div class="glass rounded-xl p-4 stat-glow text-center">
+          <div class="text-2xl font-black text-cyan-400">100+</div>
+          <div class="text-[11px] text-slate-400 font-semibold mt-1">Herbs in Database</div>
+        </div>
+        <div class="glass rounded-xl p-4 stat-glow text-center">
+          <div class="text-2xl font-black text-violet-400">AI</div>
+          <div class="text-[11px] text-slate-400 font-semibold mt-1">Gemini Powered</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ ABOUT SECTION ══════════════ -->
+  <section id="about" class="section-bg py-24 px-4">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16 animate-fade-up">
+        <span class="inline-flex items-center gap-2 text-xs font-bold text-emerald-400 bg-emerald-950/50 border border-emerald-500/20 px-4 py-1.5 rounded-full mb-4">
+          <i data-lucide="book-open" class="w-3.5 h-3.5"></i> About the Platform
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">What is <span class="text-emerald-400">DR. Ayurvedic Sathi</span>?</h2>
+        <p class="text-slate-400 max-w-3xl mx-auto text-sm leading-relaxed">
+          An end-to-end, multilingual RAG-driven AI platform built for the Ministry of Ayush under the SIH IP-SAKTI Sahayak problem statement. It streamlines Ayurvedic drug compliance, intellectual property risk assessment, and global export regulatory pathways.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/20 flex items-center justify-center border border-emerald-500/20 shrink-0">
+              <i data-lucide="brain" class="w-6 h-6 text-emerald-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">AI Regulatory Assistant</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Get instant compliance guidance on CITES, Patent Act §3(p), FDA, EMA regulations. Powered by Gemini AI with topic-restricted responses ensuring accurate, domain-specific answers.</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-red-600/20 to-orange-600/20 flex items-center justify-center border border-red-500/20 shrink-0">
+              <i data-lucide="shield-alert" class="w-6 h-6 text-red-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">CITES & Wildlife Screening</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Screens formulation ingredients against CITES Appendices I & II and Indian Wildlife Protection Act 1972. Flags endangered species with RED/AMBER alerts and recommends Pratinidhi Dravya substitutes.</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-600/20 to-yellow-600/20 flex items-center justify-center border border-amber-500/20 shrink-0">
+              <i data-lucide="scale" class="w-6 h-6 text-amber-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">Patent Act §3(p) Risk Analyzer</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Evaluates traditional knowledge aggregation vs. synergistic non-obviousness. Computes risk scores and provides actionable steps to establish empirical synergy (CI &lt; 0.8).</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-teal-600/20 to-cyan-600/20 flex items-center justify-center border border-teal-500/20 shrink-0">
+              <i data-lucide="scan-line" class="w-6 h-6 text-teal-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">Herb Camera Scanner</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Point your camera at any herb to instantly identify it — get the botanical name, Sanskrit name, medicinal uses, Rasa-Veerya-Vipaka profile, and CITES regulatory status.</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center border border-cyan-500/20 shrink-0">
+              <i data-lucide="globe" class="w-6 h-6 text-cyan-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">Global Export Roadmap</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Auto-generates regulatory pathways for US FDA (DSHEA/NDA), EU EMA (THMPD 30-yr rule), and GCC herbal medicine registration with step-by-step compliance checklists.</p>
+            </div>
+          </div>
+        </div>
+        <div class="glass rounded-2xl p-6 card-hover">
+          <div class="flex items-start gap-4">
+            <div class="w-12 h-12 rounded-xl bg-gradient-to-br from-violet-600/20 to-purple-600/20 flex items-center justify-center border border-violet-500/20 shrink-0">
+              <i data-lucide="languages" class="w-6 h-6 text-violet-400"></i>
+            </div>
+            <div>
+              <h3 class="text-sm font-bold text-white mb-2">Multilingual Support</h3>
+              <p class="text-xs text-slate-400 leading-relaxed">Supports English, Hindi, Tamil & Sanskrit with entity normalization. Normalizes vernacular plant names into Latin botanical binomials for accurate regulatory cross-referencing.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FEATURES SECTION ══════════════ -->
+  <section id="features" class="py-24 px-4" style="background: radial-gradient(ellipse 60% 50% at 50% 0%, rgba(20,184,166,0.06) 0%, transparent 60%), #060a12;">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-bold text-teal-400 bg-teal-950/50 border border-teal-500/20 px-4 py-1.5 rounded-full mb-4">
+          <i data-lucide="sparkles" class="w-3.5 h-3.5"></i> Platform Modules
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">What You Can Do</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+        <a href="app.html#ai-chat" class="glass rounded-2xl p-8 card-hover text-left group block">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-emerald-600/20 to-teal-600/20 flex items-center justify-center mb-5 border border-emerald-500/20 group-hover:border-emerald-500/40 transition-all">
+            <i data-lucide="message-square" class="w-7 h-7 text-emerald-400"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">AI Chat Assistant</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Ask questions about any Ayurvedic formulation, herb, or regulation. Get concise answers with herb properties, uses, and compliance guidance.</p>
+          <span class="text-xs font-bold text-emerald-400 group-hover:text-emerald-300 flex items-center gap-1">Open AI Chat <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+        <a href="app.html#scanner" class="glass rounded-2xl p-8 card-hover text-left group block">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-teal-600/20 to-cyan-600/20 flex items-center justify-center mb-5 border border-teal-500/20 group-hover:border-teal-500/40 transition-all">
+            <i data-lucide="camera" class="w-7 h-7 text-teal-400"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Herb Scanner</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Use your device camera or upload an image of any herb. The AI identifies the plant and gives full details — name, medicinal uses, and regulatory status.</p>
+          <span class="text-xs font-bold text-teal-400 group-hover:text-teal-300 flex items-center gap-1">Open Scanner <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+        <a href="app.html#locations" class="glass rounded-2xl p-8 card-hover text-left group block">
+          <div class="w-14 h-14 rounded-xl bg-gradient-to-br from-cyan-600/20 to-blue-600/20 flex items-center justify-center mb-5 border border-cyan-500/20 group-hover:border-cyan-500/40 transition-all">
+            <i data-lucide="map-pin" class="w-7 h-7 text-cyan-400"></i>
+          </div>
+          <h3 class="text-base font-bold text-white mb-2">Ingredient Sourcing</h3>
+          <p class="text-xs text-slate-400 leading-relaxed mb-4">Find verified suppliers and cultivation zones for Ayurvedic ingredients with real-time stock availability, pricing, and CITES compliance tags.</p>
+          <span class="text-xs font-bold text-cyan-400 group-hover:text-cyan-300 flex items-center gap-1">View Locations <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i></span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ HOW TO USE ══════════════ -->
+  <section id="how-to-use" class="section-bg py-24 px-4">
+    <div class="max-w-5xl mx-auto">
+      <div class="text-center mb-16">
+        <span class="inline-flex items-center gap-2 text-xs font-bold text-cyan-400 bg-cyan-950/50 border border-cyan-500/20 px-4 py-1.5 rounded-full mb-4">
+          <i data-lucide="compass" class="w-3.5 h-3.5"></i> Getting Started
+        </span>
+        <h2 class="text-3xl md:text-5xl font-black text-white mb-4">How to Use</h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+        <div class="text-center animate-fade-up" style="animation-delay:0.1s">
+          <div class="w-14 h-14 rounded-full bg-emerald-500/10 border border-emerald-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-black text-emerald-400">1</span></div>
+          <h4 class="text-sm font-bold text-white mb-2">Ask a Question</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Type or speak your query about any Ayurvedic formulation, ingredient, or patent in any supported language.</p>
+        </div>
+        <div class="text-center animate-fade-up" style="animation-delay:0.2s">
+          <div class="w-14 h-14 rounded-full bg-teal-500/10 border border-teal-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-black text-teal-400">2</span></div>
+          <h4 class="text-sm font-bold text-white mb-2">Get AI Analysis</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">The AI processes your query against statutory databases and returns cited regulatory guidance in real time.</p>
+        </div>
+        <div class="text-center animate-fade-up" style="animation-delay:0.3s">
+          <div class="w-14 h-14 rounded-full bg-cyan-500/10 border border-cyan-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-black text-cyan-400">3</span></div>
+          <h4 class="text-sm font-bold text-white mb-2">Scan Ingredients</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Use the camera scanner to identify herbs and get their full medicinal profile, CITES status, and Ayurvedic classification.</p>
+        </div>
+        <div class="text-center animate-fade-up" style="animation-delay:0.4s">
+          <div class="w-14 h-14 rounded-full bg-blue-500/10 border border-blue-500/20 flex items-center justify-center mx-auto mb-4"><span class="text-xl font-black text-blue-400">4</span></div>
+          <h4 class="text-sm font-bold text-white mb-2">Export & Comply</h4>
+          <p class="text-xs text-slate-400 leading-relaxed">Generate compliance dossiers, find ingredient suppliers, and contact salesmen for procurement assistance.</p>
+        </div>
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center mt-16 animate-fade-up" style="animation-delay:0.5s">
+        <a href="app.html" class="btn-primary px-10 py-4 rounded-xl text-white font-bold text-base inline-flex items-center gap-3 shadow-xl">
+          <i data-lucide="rocket" class="w-5 h-5"></i> Get Started — Launch Platform
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ══════════════ FOOTER ══════════════ -->
+  <footer class="border-t border-white/5 py-10 px-4 bg-surface-50">
+    <div class="max-w-6xl mx-auto">
+      <div class="flex flex-col md:flex-row items-center justify-between gap-6">
+        <div class="flex items-center gap-3">
+          <div class="w-9 h-9 rounded-lg bg-gradient-to-tr from-emerald-600 to-teal-500 flex items-center justify-center">
+            <i data-lucide="leaf" class="w-4 h-4 text-white"></i>
+          </div>
+          <div>
+            <span class="text-sm font-bold text-slate-300">DR. Ayurvedic Sathi</span>
+            <p class="text-[10px] text-slate-600">IP-SAKTI Sahayak • Ministry of Ayush (SIH)</p>
+          </div>
+        </div>
+        <div class="flex items-center gap-6 text-xs text-slate-500">
+          <a href="#about" class="hover:text-emerald-400 transition-colors">About</a>
+          <a href="#features" class="hover:text-emerald-400 transition-colors">Features</a>
+          <a href="app.html" class="hover:text-emerald-400 transition-colors">Launch App</a>
+          <a href="app.html#contact" class="hover:text-emerald-400 transition-colors">Contact</a>
+        </div>
+        <p class="text-[11px] text-slate-600">&copy; 2026 DR. Ayurvedic Sathi. All rights reserved.</p>
+      </div>
+    </div>
+  </footer>
+
+  <script>document.addEventListener('DOMContentLoaded', () => lucide.createIcons());</script>
+</body>
+</html>

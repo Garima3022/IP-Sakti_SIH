@@ -1,0 +1,159 @@
+{
+  "metadata": {
+    "description": "Offline CITES & Wildlife Protection Act 1972 database for Ayurvedic botanicals",
+    "last_updated": "2026-09-14",
+    "source": "CITES Species+ / UNEP-WCMC / MoEFCC India Schedule VI"
+  },
+  "protected_species": [
+    {
+      "botanical_name": "Saussurea costus",
+      "sanskrit_name": "Kushta (Kuth)",
+      "family": "Asteraceae",
+      "cites_appendix": "Appendix I",
+      "wildlife_act_schedule": "Schedule VI (Protected Plant)",
+      "risk_level": "RED",
+      "legal_status": "Strictly banned for commercial export of wild-harvested specimens. Cultivation requires state license under Biological Diversity Act 2002.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Inula racemosa",
+        "alternative_sanskrit_name": "Pushkarmoola",
+        "justification": "Classical Pratinidhi Dravya with matching Tikta Rasa, Ushna Veerya, Katu Vipaka. Indicated for Kasa, Shwasa, Hikka — same therapeutic Karma as Kushta.",
+        "pharmacopoeia_reference": "Ayurvedic Pharmacopoeia of India (API) Part I, Vol. IV"
+      }
+    },
+    {
+      "botanical_name": "Pterocarpus santalinus",
+      "sanskrit_name": "Rakta Chandana (Red Sanders)",
+      "family": "Fabaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Schedule VI (Protected Plant)",
+      "risk_level": "RED",
+      "legal_status": "Restricted trade under CITES Export Permit & DGFT Certificate of Origin. Only plantation-harvested wood with CITES-NDF certification is exportable.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Caesalpinia sappan",
+        "alternative_sanskrit_name": "Patanga",
+        "justification": "Classical Pratinidhi Dravya for Rakta Chandana with matching Tikta-Madhura Rasa, Sheeta Veerya. Used as wound-healing and Raktapitta agent.",
+        "pharmacopoeia_reference": "Bhavaprakasha Nighantu — Karpuradi Varga"
+      }
+    },
+    {
+      "botanical_name": "Nardostachys jatamansi",
+      "sanskrit_name": "Jatamansi (Spikenard)",
+      "family": "Caprifoliaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Schedule VI (Critically Endangered)",
+      "risk_level": "AMBER",
+      "legal_status": "Requires Non-Detriment Finding (NDF) certificate and sustainable harvest licensing from State Forest Department.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Valeriana wallichii",
+        "alternative_sanskrit_name": "Tagara",
+        "justification": "Pharmacologically validated substitute with matching Tikta Rasa, Ushna Veerya. Sedative and anxiolytic activity comparable to Jatamansi.",
+        "pharmacopoeia_reference": "Ayurvedic Pharmacopoeia of India (API) Part I, Vol. I"
+      }
+    },
+    {
+      "botanical_name": "Rauvolfia serpentina",
+      "sanskrit_name": "Sarpagandha",
+      "family": "Apocynaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Schedule VI (Protected Plant)",
+      "risk_level": "AMBER",
+      "legal_status": "Requires CITES Appendix II Export Permit and Biodiversity Board approval. Reserpine content makes it a scheduled pharmaceutical.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Centella asiatica",
+        "alternative_sanskrit_name": "Mandukaparni",
+        "justification": "Alternative for neurological indications. Anxiolytic and blood pressure-modulating properties documented in pharmacological studies.",
+        "pharmacopoeia_reference": "Charaka Samhita — Medhya Rasayana chapter"
+      }
+    },
+    {
+      "botanical_name": "Aquilaria agallocha",
+      "sanskrit_name": "Agaru (Agarwood)",
+      "family": "Thymelaeaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Protected species",
+      "risk_level": "AMBER",
+      "legal_status": "Strict export quotas apply under CITES Appendix II. Plantation certification required.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Santalum album",
+        "alternative_sanskrit_name": "Shweta Chandana (White Sandalwood)",
+        "justification": "Aromatic substitute with Sheeta Veerya used in similar formulations for Daha, Raktapitta, and topical applications.",
+        "pharmacopoeia_reference": "Ayurvedic Pharmacopoeia of India (API) Part I, Vol. I"
+      }
+    },
+    {
+      "botanical_name": "Coscinium fenestratum",
+      "sanskrit_name": "Daruharidra (Tree Turmeric)",
+      "family": "Menispermaceae",
+      "cites_appendix": "None (Regional IUCN Critically Endangered)",
+      "wildlife_act_schedule": "Not listed, but State-level bans in Kerala/Karnataka",
+      "risk_level": "AMBER",
+      "legal_status": "Critically endangered in Western Ghats. Harvest restricted by Kerala and Karnataka State biodiversity boards.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Berberis aristata",
+        "alternative_sanskrit_name": "Daruharidra (Indian Barberry)",
+        "justification": "Contains identical berberine alkaloid profile. Direct pharmacological and Ayurvedic substitute.",
+        "pharmacopoeia_reference": "Dhanvantari Nighantu — Guduchyadi Varga"
+      }
+    },
+    {
+      "botanical_name": "Aconitum heterophyllum",
+      "sanskrit_name": "Ativisha",
+      "family": "Ranunculaceae",
+      "cites_appendix": "None",
+      "wildlife_act_schedule": "Schedule VI equivalent — Critically Endangered (IUCN)",
+      "risk_level": "AMBER",
+      "legal_status": "Wild harvest banned in Himachal Pradesh, Uttarakhand. Only plantation material with state traceability certificate is tradeable.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Picrorhiza kurroa",
+        "alternative_sanskrit_name": "Katuki",
+        "justification": "Shared bitter tonic activity, Jwarahara (antipyretic) and Deepana (carminative) Karma. Used in same formulation class.",
+        "pharmacopoeia_reference": "Bhavaprakasha Nighantu — Haritakyadi Varga"
+      }
+    },
+    {
+      "botanical_name": "Dactylorhiza hatagirea",
+      "sanskrit_name": "Hathajodi / Salam Panja",
+      "family": "Orchidaceae",
+      "cites_appendix": "Appendix II (All Orchidaceae)",
+      "wildlife_act_schedule": "Schedule VI",
+      "risk_level": "RED",
+      "legal_status": "All wild orchid trade banned under CITES. No legitimate commercial supply chain for wild-sourced tubers.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Chlorophytum borivilianum",
+        "alternative_sanskrit_name": "Safed Musli",
+        "justification": "Cultivated Vajikarana (aphrodisiac) substitute with comparable saponin content and Shukrala activity.",
+        "pharmacopoeia_reference": "Ayurvedic Pharmacopoeia of India (API) Part I, Vol. V"
+      }
+    },
+    {
+      "botanical_name": "Picrorhiza kurroa",
+      "sanskrit_name": "Katuki / Kutki",
+      "family": "Plantaginaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Schedule VI (Critically Endangered in wild)",
+      "risk_level": "AMBER",
+      "legal_status": "Requires CITES Appendix II permit. Cultivated material from registered nurseries is trade-eligible.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Andrographis paniculata",
+        "alternative_sanskrit_name": "Kalmegh",
+        "justification": "Tikta Rasa bitter hepatoprotective herb with similar Pitta-shamaka and Yakrit-uttejaka (hepatostimulant) activity.",
+        "pharmacopoeia_reference": "Indian Pharmacopoeia (IP) 2018"
+      }
+    },
+    {
+      "botanical_name": "Taxus wallichiana",
+      "sanskrit_name": "Talispatra",
+      "family": "Taxaceae",
+      "cites_appendix": "Appendix II",
+      "wildlife_act_schedule": "Schedule VI",
+      "risk_level": "RED",
+      "legal_status": "Source of taxol (Paclitaxel). Wild harvest strictly banned. Only plantation-derived bark extracts permissible.",
+      "pratinidhi_dravya": {
+        "alternative_name": "Cinnamomum tamala",
+        "alternative_sanskrit_name": "Tejpatra",
+        "justification": "Classical Pratinidhi for Talispatra in respiratory formulations. Kasa-Shwasa indications shared.",
+        "pharmacopoeia_reference": "Charaka Samhita — Chikitsa Sthana Ch. 18"
+      }
+    }
+  ]
+}
