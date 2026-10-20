@@ -64,6 +64,6 @@ npm run dev
 *Frontend available at: `http://localhost:3000`*
 
 ### Or Run One-Click Windows Script:
-```cmd
+```' cmd
 start.bat
 ```
